@@ -16,6 +16,19 @@ int main()
 	b = (double)5 / d;
 	printf("b = %lf\n", b);
 
+	// 类型占用空间小的往类型占用空间大的转换,没有问题
+	char e = 127;
+	int f = (int)e;
+	printf("f = %d\n", f);
+
+	// 类型占用空间大的往类型占用空间小的转换,可能出现越界问题
+	f = 111;
+	e = (char)f;
+	printf("e = %d\n", e);
+
+	f = 333;
+	e = (char)f; // 无符号char最大数值为255, 333会出现越界
+	printf("e = %d\n", e);
 	return 0;
 }
 
